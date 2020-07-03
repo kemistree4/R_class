@@ -1,0 +1,59 @@
+---
+title: "Homework_8"
+author: "Rikeem Sholes"
+date: "June 12, 2020"
+output: html_document
+---
+
+---
+
+## Exercise 8 of baseR for Biologists
+
+---
+
+##Assigning a dataset path
+```{r}
+path.root <- "C:/Users/rikee/OneDrive/Documents/baseR-V2020.2/baseR-V2020.2"
+path.dataset_path = paste(path.root, "/data/exercise_dat", sep = "")
+```
+
+## Setting working directory
+
+```{r setup}
+knitr::opts_knit$set(root.dir = path.dataset_path)
+```
+
+## Import dataset 
+```{r}
+rod1 = read.csv("rodents_seedchoice.csv", header = T)
+head(rod1)
+```
+
+## Loading reshape library
+
+```{r}
+library(reshape2)
+```
+
+## Melts data
+```{r}
+rod2 = melt(rod1, id = c("date", "spp", "mix", "trtmt"))
+```
+
+## Renaming melted columns
+```{r}
+names(rod2)[5:6] = c("Seed", "Diff")
+head(rod2)
+```
+
+## Saving Data
+
+```{r}
+save(rod2, file= "rodents_seedchoice.RData")
+```
+
+---
+
+# Done
+
+---

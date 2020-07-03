@@ -1,0 +1,95 @@
+---
+title: "Homework_9"
+author: "Rikeem Sholes"
+date: "June 12, 2020"
+output: html_document
+---
+
+---
+
+## Exercise 9 of baseR for Biologists
+
+---
+
+##Assigning a dataset path
+```{r}
+path.root <- "C:/Users/rikee/OneDrive/Documents/baseR-V2020.2/baseR-V2020.2"
+path.dataset_path = paste(path.root, "/data/exercise_dat", sep = "")
+```
+
+## Setting working directory
+
+```{r setup}
+knitr::opts_knit$set(root.dir = path.dataset_path)
+```
+
+## Import grazing error data
+
+```{r}
+graz1 = read.table("grazing_error.txt", header = T)
+dim(graz1) #865 observations per variable. 5 variables
+```
+
+##Determine variable names
+```{r}
+names(graz1)
+```
+
+## Determine whether variables are factors or numeric
+```{r}
+str(graz1)
+```
+
+## Check for errors
+
+```{r}
+unique(graz1$Geology)
+unique(graz1$Management)
+```
+
+## Find and fix erroneous input in Geology and Management columns
+
+```{r}
+#Identifies cells with errors in them
+which(graz1$Geology == "Granitci")
+which(graz1$Management == "shepp")
+which(graz1$Management == "catle")
+
+#implement change
+graz1[graz1 == "Granitci"] = "granitic"
+graz1[graz1 == "shepp"] = "sheep"
+graz1[graz1 == "catle"] = "cattle"
+
+#Checks to make sure changes took
+graz1$Geology = factor(graz1$Geology)
+unique(graz1$Geology)
+graz1$Management = factor(graz1$Management)
+unique(graz1$Management)
+
+```
+
+## Finding errors in numeric columns
+
+```{r}
+range(graz1$Width2Depth_Ratio)
+range(graz1$Avg_Bank_Angle)
+```
+
+## Find outlier and correct
+
+```{r}
+which(graz1$Avg_Bank_Angle == 129129.23) #outputs "73"
+graz1[73,4] = 129.3
+```
+
+## Save file
+
+```{r}
+save(graz1, file = "grazing_impacts.RData")
+```
+
+---
+
+# Done
+
+---

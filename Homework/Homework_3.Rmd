@@ -1,0 +1,62 @@
+---
+title: "Homework 3"
+author: "Rikeem Sholes"
+date: "May 21, 2020"
+output: word_document
+---
+
+---
+
+## Exercise 3 of baseR for Biologists
+
+---
+
+## R Help Answer for setwd()
+
+```{r}
+help("setwd")
+```
+
+Setwd accepts a directory as an argument. The directory that you want to  the working directory to change to.
+
+## R Help answer for getwd()
+
+```{r}
+help("getwd")
+```
+
+getwd returns "an absolute filepath representing thecurrent working directory"
+
+## R Help answer for save()
+
+```{r}
+help("save")
+```
+
+List is a character vector containing the names of objects to be saved
+
+## R Help answer for save.image()
+
+```{r}
+help("save.image")
+```
+
+Compress tells the function wheter to save the file using compression or not. if compress = T, compression will occur
+
+## Implementing help options
+
+```{r}
+help("options")
+```
+
+```{r}
+options(check.bounds = T)
+options(prompt = "test")
+options(show.error.messages = T)
+```
+
+---
+
+# Done
+
+---

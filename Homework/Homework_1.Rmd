@@ -1,0 +1,60 @@
+---
+title: "Homework 1"
+author: "Rikeem Sholes"
+date: "May 20, 2020"
+output: html_document
+---
+
+---
+
+## Exercise 1 of baseR for Biologists
+
+---
+
+### Install reshape
+
+```{r}
+installed.packages("reshape", dependencies = T)
+```
+
+### Check Current Packages
+
+```{r}
+search()
+```
+
+### Load reshape
+
+```{r}
+library(reshape)
+```
+
+### Check for reshape
+
+```{r}
+search()
+```
+
+### Unload reshape
+
+```{r}
+detach(package:reshape)
+```
+
+### Verify reshape is gone
+
+```{r}
+search()
+```
+
+Update packages, no queries
+
+```{r}
+update.packages(ask = F, repos = "https://cran.rstudio.com/")
+```
+
+---
+
+## Done
+
+---

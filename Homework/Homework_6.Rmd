@@ -1,0 +1,72 @@
+---
+title: "Homework_6"
+author: "Rikeem Sholes"
+date: "May 28, 2020"
+output: html_document
+---
+
+---
+
+## Exercise 6 of baseR for Biologists
+
+---
+
+##Assigning a dataset path
+```{r}
+path.root <- "C:/Users/rikee/OneDrive/Documents/baseR-V2020.2/baseR-V2020.2"
+path.dataset_path = paste(path.root, "/data/exercise_dat", sep = "")
+path.examples = paste(path.root, "/data/powerpoint_dat", sep = "")
+```
+
+##Setting directory with data in it as working directory
+```{r setup}
+knitr::opts_knit$set(root.dir = path.dataset_path)
+```
+
+##Importing first clsx file, checking dimensions and checking header
+```{r}
+coyote1 = read_excel("coyotebehav.xlsx")
+head(coyote1)
+dim(coyote1)
+```
+
+##Importing csv file, checking dimensions and checking header
+```{r}
+zapus1 = read.csv("zapusmorph.csv", na.strings = ".") #Blank cells are denoted with periods. Added argument to fix that
+head(zapus1)
+dim(zapus1)
+```
+
+##Importing second clsx file, checking dimensions and checking header
+```{r}
+fish1 = read_excel("fish_recapture.xlsx", skip = 1) #Skipped first title header to fix table
+head(fish1)
+dim(fish1)
+```
+
+##Importing dbf file, checking dimensions and checking header
+```{r}
+tmax1 = read.dbf("tmax_all.dbf")
+head(tmax1)
+dim(tmax1)
+#Had to manually download and install old foreign zip (foreign_0.8-76.zip) Newer version requires R version 4 at least. I'm running 3.6
+```
+
+
+```{r}
+setwd(path.examples)
+m1 = read.csv("m1.csv")
+m2 = read.csv("m2.csv")
+m3 = read.csv("m3.csv")
+m4 = read.csv("m4.csv")
+t1 = read.csv("t1.csv")
+w1 = read.csv("w1.csv")
+f1 = read.csv("f1.csv")
+```
+
+---
+
+
+# Done
+
+---

@@ -1,0 +1,68 @@
+---
+title: "Homework 2"
+author: "Rikeem Sholes"
+date: "May 20, 2020"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+---
+
+## Exercise 2 of baseR for Biologists
+
+---
+
+```{r}
+path.root <- "C:/Users/rikee/OneDrive/Documents/baseR-V2020.2/baseR-V2020.2"
+path.exercises <- paste(path.root, "/data/exercise_dat", sep = "")
+path.examples <- paste(path.root, "/data/powerpoint_dat", sep = "")
+path.gitfolder <- "C:/Users/rikee/code/R_class/Homework"
+```
+
+### Changing working directory and listing files
+
+```{r}
+setwd(path.exercises)
+list.files()
+```
+
+### Changing to R Class git repo and listing files
+
+```{r}
+setwd(path.gitfolder)
+list.files()
+```
+
+### Checking current working directory
+
+```{r}
+getwd() #returns my active working directory
+```
+
+```{r}
+ls()
+```
+
+### Changing working directory back to root and saving pathnames there
+
+```{r}
+setwd(path.root)
+save(path.root, path.gitfolder, path.examples, path.exercises, file = "data/baseR.pathnames.RData") 
+#Verified that they were made
+```
+
+### Reloading pathnames after restart
+
+```{r}
+setwd("C:/Users/rikee/OneDrive/Documents/baseR-V2020.2/baseR-V2020.2/data")
+load("baseR.pathnames.RData")
+ls()
+```
+
+#Couldn't figure out MikTeX installation to get this to output as a pdf. Couldn't find "complete" version that the Rstudios prompt recommended and the "basic" version didn't work.
+
+---
+
+## Done

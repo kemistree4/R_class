@@ -1,0 +1,47 @@
+---
+title: "Homework_5"
+author: "Rikeem Sholes"
+date: "May 22, 2020"
+output: html_document
+---
+
+---
+
+## Exercise 5 of baseR for Biologists
+
+---
+
+## Build a vector of 10 zeros
+
+```{r}
+rep(0, 10) #arguments include the vector and how many times you want it repeated
+```
+
+## Build 10x12 matrix of zeroes . rows labeled f1-10. columns labeled t1-12 
+
+```{r}
+mat1.data = c(rep(0,120))
+rnames = c("f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10")
+cnames = c("t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12")
+mat1 = matrix(mat1.data, nrow=10, ncol=12, dimnames = list(rnames,cnames))
+
+```
+
+## Create list of species names
+
+```{r}
+spec_list = list("Juniperus pinchotii", "Juniperus ashei", "Juniperus deppeana", "Juniperus occidentalis", "Juniperus osteosperma", "Juniperus scopulorum", "Juniperus monosperma")
+```
+
+## Create a dataframe with seperate columns for genus and species name
+```{r}
+Genus_column = c(rep("Juniperus",7))
+Species_column = c("pinchotii", "ashei", "deppeana", "occidentalis", "osteosperma", "scopulorum", "monosperma")
+df = data.frame(Genus = Genus_column, Epithet = Species_column)
+```
+
+---
+
+# Done
+
+---

@@ -1,0 +1,99 @@
+---
+title: "Homework 7"
+author: "Rikeem Sholes"
+date: "June 12, 2020"
+output: html_document
+---
+
+---
+
+## Exercise 7 of baseR for Biologists
+
+---
+
+## Assigning a dataset path
+
+```{r}
+path.root <- "C:/Users/rikee/OneDrive/Documents/baseR-V2020.2/baseR-V2020.2"
+path.dataset_path = paste(path.root, "/data/exercise_dat", sep = "")
+```
+
+## Setting working directory
+
+```{r setup}
+knitr::opts_knit$set(root.dir = path.dataset_path)
+```
+
+## Importing zapusmorph database
+
+---
+```{r}
+zap1.b = read.csv("zapusmorph.csv", header = T, na.strings = ".")
+is.numeric(zap1.b$ELEV)
+```
+
+## Importing Coyote behavior file and check variable names
+
+```{r}
+coy1.b = read.csv("coyotebehav.csv", header = T)
+names(coy1.b)
+```
+
+## Check whether each variable is numeric/factor and show levels
+
+```{r}
+str(coy1.b)
+```
+
+## Coercing habitat
+
+```{r}
+#We will force the habitat data into a factor
+coy1.b$habitat = as.factor(coy1.b$habitat)
+#Check to ensure coersion occured
+is.factor(coy1.b$habitat)
+```
+
+## Convert coyote date/time format
+
+```{r}
+library(chron) #Loads chron library
+coy1.b$c.date = dates(as.character(coy1.b$date))
+coy1.b$c.time = times(coy1.b$time)
+coy1.b$date.time = chron(dates = coy1.b$c.date, times = coy1.b$c.time)
+str(coy1.b)
+```
+
+## Determine number of julian days since 01Jan1991
+
+```{r}
+julian(2, 27, 1991, origin =c(1, 1, 1991))
+```
+
+## Determine the number of hours and tenths of minutes since start/end of observation period
+
+```{r}
+difftime(coy1.b[675, 8], coy1.b[1, 8], units = "hours")
+difftime(coy1.b[675, 8], coy1.b[1, 8], units = "mins")
+```
+
+## Import fish capture data
+
+```{r}
+fish1.b = read.csv("fish_recapture.csv", header = T, skip = 1)
+attach(fish1.b)
+```
+
+## Determine the days between tag and recapture of each fish
+
+```{r}
+fish1.b$c.tagdate = dates(as.character(tag.date))
+fish1.b$c.recapdata = dates(as.character(recap.date))
+fish1.b$days.tag2recap = fish1.b$c.recapdata - fish1.b$c.tagdate 
+```
+
+---
+
+# Done
+
+---
